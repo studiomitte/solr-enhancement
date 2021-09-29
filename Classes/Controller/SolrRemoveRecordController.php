@@ -17,6 +17,14 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class SolrRemoveRecordController
 {
 
+    /** @var AccessCheck */
+    protected $accessCheck;
+
+    public function __construct(AccessCheck $accessCheck = null)
+    {
+        $this->accessCheck = $accessCheck ?: GeneralUtility::makeInstance(AccessCheck::class);
+    }
+
     /**
      * @param ServerRequestInterface $request
      * @return ResponseInterface
@@ -29,7 +37,7 @@ class SolrRemoveRecordController
         $table = $parsedBody['table'] ?? $queryParams['table'] ?? '';
         $language = null;
 
-        if (AccessCheck::tableIsValid($table)) {
+        if ($this->accessCheck->tableIsValid($table)) {
             $pageId = null;
 
             $connectionManager = GeneralUtility::makeInstance(ConnectionManager::class);
@@ -68,7 +76,7 @@ class SolrRemoveRecordController
     /**
      * Returns LanguageService
      *
-     * @return \TYPO3\CMS\Core\Localization\LanguageService
+     * @return LanguageService
      */
     protected function getLanguageService(): LanguageService
     {
