@@ -43,7 +43,7 @@ class SolrContextMenuItemProvider extends AbstractProvider
 
     protected function getAdditionalAttributes(string $itemName): array
     {
-        $module = version_compare(TYPO3_version, '10.0.0', '>=') ? 'TYPO3/CMS/SolrEnhancement/ContextMenuActions9' : 'TYPO3/CMS/SolrEnhancement/ContextMenuActions';
+        $module = version_compare(TYPO3_version, '10.0.0', '>=') ? 'TYPO3/CMS/SolrEnhancement/ContextMenuActions' : 'TYPO3/CMS/SolrEnhancement/ContextMenuActions9';
         return [
             'data-callback-module' => $module,
         ];
