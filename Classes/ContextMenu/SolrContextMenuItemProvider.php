@@ -16,7 +16,7 @@ class SolrContextMenuItemProvider extends AbstractProvider
     protected $itemsConfiguration = [
         'hello' => [
             'type' => 'item',
-            'label' => 'LLL:EXT:solr_enhancement/Resources/Private/Language/locallang.xlf:contextmenu.remove', // you can use "LLL:" syntax here
+            'label' => 'LLL:EXT:solr_enhancement/Resources/Private/Language/locallang.xlf:contextmenu.remove',
             'iconIdentifier' => 'actions-edit-delete',
             'callbackAction' => 'removeFromSolr'
         ]
@@ -43,10 +43,9 @@ class SolrContextMenuItemProvider extends AbstractProvider
 
     protected function getAdditionalAttributes(string $itemName): array
     {
+        $module = version_compare(TYPO3_version, '10.0.0', '>=') ? 'TYPO3/CMS/SolrEnhancement/ContextMenuActions9' : 'TYPO3/CMS/SolrEnhancement/ContextMenuActions';
         return [
-            // BEWARE!!! RequireJS MODULES MUST ALWAYS START WITH "TYPO3/CMS/" (and no "Vendor" segment here)
-            'data-callback-module' => 'TYPO3/CMS/SolrEnhancement/ContextMenuActions',
-            // Here you can also add any other useful "data-" attribute you'd like to use in your JavaScript (e.g. localized messages)
+            'data-callback-module' => $module,
         ];
     }
 }
