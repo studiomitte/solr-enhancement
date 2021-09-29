@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace StudioMitte\SolrEnhancement\ContextMenu;
 
 use TYPO3\CMS\Backend\ContextMenu\ItemProviders\AbstractProvider;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class SolrContextMenuItemProvider extends AbstractProvider
 {
@@ -38,7 +39,8 @@ class SolrContextMenuItemProvider extends AbstractProvider
 
     public function canHandle(): bool
     {
-        return AccessCheck::tableIsValid($this->table);
+        $accessCheck = GeneralUtility::makeInstance(AccessCheck::class);
+        return $accessCheck->tableIsValid($this->table);
     }
 
     protected function getAdditionalAttributes(string $itemName): array

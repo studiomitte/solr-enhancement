@@ -9,10 +9,17 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class AccessCheck
 {
-    public static function tableIsValid(string $tableName): bool
+    protected ExtensionConfiguration $extensionConfiguration;
+
+    public function __construct(ExtensionConfiguration $extensionConfiguration = null)
     {
-        $settings = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('solr_enhancement');
-        $tables = GeneralUtility::trimExplode(',', $settings['tables'] ?? '', true);
+        $this->extensionConfiguration = $extensionConfiguration ?: GeneralUtility::makeInstance(ExtensionConfiguration::class);
+    }
+
+    public function tableIsValid(string $tableName): bool
+    {
+        $config = $this->extensionConfiguration->get('solr_enhancement');
+        $tables = GeneralUtility::trimExplode(',', $config['tables'] ?? '', true);
         return in_array($tableName, $tables, true);
     }
 }
