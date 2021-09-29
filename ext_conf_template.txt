@@ -1,0 +1,2 @@
+# cat=enable; type=string; label=Allowed tables
+tables = pages

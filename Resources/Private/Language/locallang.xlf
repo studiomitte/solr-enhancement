@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+    <file source-language="en" date="2021-04-19T13:36:43+02:00">
+        <body>
+            <trans-unit id="contextmenu.remove" resname="contextmenu.remove">
+                <source>Remove record from solr</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
