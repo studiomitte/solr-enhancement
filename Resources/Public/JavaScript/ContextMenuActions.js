@@ -28,6 +28,7 @@ define(function () {
       request.get().then(
         async function (response) {
           const data = await response.resolve();
+          // not working in 11?
           top.TYPO3.Notification.info('Record has been removed');
 
         }, function (error) {
