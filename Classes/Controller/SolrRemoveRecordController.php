@@ -16,19 +16,13 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class SolrRemoveRecordController
 {
-
-    /** @var AccessCheck */
-    protected $accessCheck;
+    protected AccessCheck $accessCheck;
 
     public function __construct(AccessCheck $accessCheck = null)
     {
         $this->accessCheck = $accessCheck ?: GeneralUtility::makeInstance(AccessCheck::class);
     }
 
-    /**
-     * @param ServerRequestInterface $request
-     * @return ResponseInterface
-     */
     public function mainAction(ServerRequestInterface $request): ResponseInterface
     {
         $parsedBody = $request->getParsedBody();
@@ -65,19 +59,11 @@ class SolrRemoveRecordController
         ]);
     }
 
-    /**
-     * @return BackendUserAuthentication
-     */
     protected function getBackendUserAuthentication(): BackendUserAuthentication
     {
         return $GLOBALS['BE_USER'];
     }
 
-    /**
-     * Returns LanguageService
-     *
-     * @return LanguageService
-     */
     protected function getLanguageService(): LanguageService
     {
         return $GLOBALS['LANG'];

@@ -1,2 +1,2 @@
-# cat=enable; type=string; label=Allowed tables
+# cat=enable; type=string; label=Allowed tables, comma separated
 tables = pages

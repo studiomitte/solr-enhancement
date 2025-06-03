@@ -27,9 +27,7 @@ class SolrContextMenuItemProvider extends AbstractProvider
     {
         $this->initDisabledItems();
 
-        //passes array of items to the next item provider
-        $items = $items + $this->prepareItems($this->itemsConfiguration);
-        return $items;
+        return $items + $this->prepareItems($this->itemsConfiguration);
     }
 
     public function getPriority(): int
@@ -45,9 +43,8 @@ class SolrContextMenuItemProvider extends AbstractProvider
 
     protected function getAdditionalAttributes(string $itemName): array
     {
-        $module = version_compare(TYPO3_version, '10.0.0', '>=') ? 'TYPO3/CMS/SolrEnhancement/ContextMenuActions' : 'TYPO3/CMS/SolrEnhancement/ContextMenuActions9';
         return [
-            'data-callback-module' => $module,
+            'data-callback-module' => '@studiomitte/solrenhancement/context-menu-actions',
         ];
     }
 }

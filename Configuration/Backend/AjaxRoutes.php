@@ -1,7 +1,4 @@
 <?php
-/**
- * Definitions of routes
- */
 return [
     'web_list_solrrecordclear' => [
         'path' => '/web/list/solrrecordclear',

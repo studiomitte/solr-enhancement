@@ -23,8 +23,8 @@
 		"GPL-2.0-or-later"
 	],
 	"require": {
-		"typo3/cms-core": "^9.5 || ^10.4 || ^11.5",
-		"apache-solr-for-typo3/solr": "^10 || ^11"
+		"typo3/cms-core": "^13.4.13",
+		"apache-solr-for-typo3/solr": "^13.0.2"
 	},
 	"autoload": {
 		"psr-4": {
@@ -35,10 +35,6 @@
 		"psr-4": {
 			"StudioMitte\\SolrEnhancement\\Tests\\": "Tests"
 		}
-	},
-	"replace": {
-		"studiomitte/solr_enhancement": "self.version",
-		"typo3-ter/solr_enhancement": "self.version"
 	},
 	"extra": {
 		"typo3/cms": {

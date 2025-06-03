@@ -1,5 +1,11 @@
 # TYPO3 Extension `solr_enhancement`
 
+Remove records like pages from solr index via context menu
+
+## Usage
+
+Install extension with `composer req studiomitte/solr-enhancement` and configure allowed tables in extension settings.
+
 
 ## Credits
 
